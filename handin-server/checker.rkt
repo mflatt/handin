@@ -1,7 +1,7 @@
 #lang racket/base
 
 (require (for-syntax racket/base) "utils.rkt"
-         racket/file racket/class racket/gui/base)
+         racket/file racket/class)
 
 (provide (except-out (all-from-out racket/base) #%module-begin)
          (all-from-out "utils.rkt"))
