@@ -126,6 +126,10 @@ This directory contains the following files and sub-directories:
     logging the internal HTTPS status web server; or @racket[#f] (the
     default) to disable this log.}
 
+  @item{@indexed-racket[gui?] --- a boolean to indicate whether
+    @racketmodname[racket/gui] should be supported for testing
+    submissions; defaults to @racket[#t].}
+
   @item{@indexed-racket[extra-fields] --- a list that describes extra
     string fields of information for student records; each element in
     this list is a list of three values: the name of the field, the

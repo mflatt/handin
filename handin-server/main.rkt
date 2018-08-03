@@ -16,13 +16,16 @@
          ;; to be done in the main thread, rather than later in a
          ;; user session thread (that will make the global changes
          ;; not to be global.)
-         "sandbox.rkt"
-         ;; workaround for a confusing problem: without this, the gui
-         ;; gets initialized in a handler (since checks use it, and
-         ;; they're being required dynamically), and further handlers
-         ;; will fail with "queue-callback: eventspace is shutdown",
-         ;; requiring it here makes it avoids killing the eventspace
-         racket/gui/base)
+         "sandbox.rkt")
+
+
+;; workaround for a confusing problem: without this, the gui
+;; gets initialized in a handler (since checks use it, and
+;; they're being required dynamically), and further handlers
+;; will fail with "queue-callback: eventspace is shutdown",
+;; loading it here makes it avoids killing the eventspace
+(when (get-conf 'gui?)
+  (dynamic-require 'racket/gui/base #f))
 
 (install-logger-port)
 

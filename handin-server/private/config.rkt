@@ -64,6 +64,7 @@
       v)))
 
 (define (id x)         x)
+(define (boolean x)    (and x #t))
 (define (rx s)         (if (regexp? s) s (regexp s)))
 (define (path p)       (path->complete-path p server-dir))
 (define (path/false p) (and p (path p)))
@@ -94,6 +95,7 @@
     [(log-output)              (values #t                    id           )]
     [(log-file)                (values "log"                 path/false   )]
     [(web-log-file)            (values #f                    path/false   )]
+    [(gui?)                    (values #t                    boolean      )]
     [(extra-fields)
      (values '(("Full Name" #f #f)
                ("ID#" #f #f)

@@ -1,5 +1,6 @@
 #lang racket/base
-(require racket/sandbox)
+(require racket/sandbox
+         "private/config.rkt")
 (provide (all-from-out racket/sandbox))
 
 ;; no input/output
@@ -17,7 +18,7 @@
    `(,(car specs)
      ,@(cdr specs)
      lang/posn
-     ,@(if gui? '(mrlib/cache-image-snip) '()))))
+     ,@(if (get-conf 'gui?) '(mrlib/cache-image-snip) '()))))
 
 ;; local overrides
 (require racket/runtime-path)

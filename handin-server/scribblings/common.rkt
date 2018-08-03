@@ -11,9 +11,11 @@
                     "hook-dummy.rkt"))
 
 (provide (all-from-out scribble/manual)
-         (for-label (all-from-out racket
-                                  handin-server/checker
-                                  handin-server/sandbox
-                                  handin-server/utils
-                                  racket/gui/base
-                                  "hook-dummy.rkt")))
+         (for-label (except-out
+                     (all-from-out racket
+                                   handin-server/checker
+                                   handin-server/sandbox
+                                   handin-server/utils
+                                   racket/gui/base
+                                   "hook-dummy.rkt")
+                     gui?)))
